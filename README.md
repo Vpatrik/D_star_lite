@@ -1,6 +1,6 @@
 # D* lite 
 
----
+
 Based on original [article](https://www.uco.es/investiga/grupos/ava/node/26 "D* lite") from Sven Koenig.
 Started as a fork of [mdeyo](https://github.com/mdeyo/d-star-lite "D* lite repo"), then diverted.
 Visualization is also based on tutorials for Pygame.
