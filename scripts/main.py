@@ -55,7 +55,7 @@ elif LoadGrid:
 	goal = 'x15y15'
 	Graf.initialize(start, goal)
 	DL = DStarLite(Graf, heur_type, VIEWING_RANGE)
-	loadGrid(Graf, 'grid_20x20_s0_2_g15_15.txt',start, goal)
+	loadGrid(Graf, 'example_grid/grid_20x20_s0_2_g15_15.txt',start, goal)
 ## Jinak si uzivatel vytvori mapu klikanim
 
 ## Inicializace na zaklade zvolenych moznosti
@@ -86,7 +86,7 @@ while not done:
 			elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE: ## Zmacknuti mezerniku - posun programu o jeden krok
 			    DL.moveScan() ## Pokud je objevena nova prekazka, najde novou trasu, a zustane na miste
 			    if DL.currentVertex == goal: ## Pokud je robot v cili, ukonci obrazovku
-			        print('Došel jsem do cíle!')
+			        print('Dosel jsem do cile!')
 			        done = True
 
 			elif event.type == pygame.MOUSEBUTTONDOWN: ## Pokud uzivatel kliknul do mrizky
@@ -102,9 +102,9 @@ while not done:
 					try:
 						_thread.start_new_thread(DL.moveScan,())
 					except:
-						print("Nemůžu nastavit multithreading. Zakomentuj od try po print a odkomentuj DL.moveScavn()")
+						print("Nemuzu nastavit multithreading. Zakomentuj od try po print a odkomentuj DL.moveScavn()")
 					if DL.currentVertex == goal: ## pokud je dosazeno cile, ukonci rogram
-						print('Došel jsem do cíle!')
+						print('Dosel jsem do cile!')
 						done = True
 						break
 					else:

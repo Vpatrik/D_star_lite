@@ -28,7 +28,7 @@ class DStarLite:
 			if s in vertex:
 				vertices_in_queue.append(vertex)
 		if len(vertices_in_queue) >= 2: ## kontrola, jestli neni vrchol v seznamu OPEN vicekrat
-			raise ValueError('Více vrcholů ' + vertex + ' ve frontě!') ## pokud ano, vypis chybu
+			raise ValueError('Vice vrcholu ' + vertex + ' ve front!') ## pokud ano, vypis chybu
 		elif len(vertices_in_queue) > 0:
 			self.queue.remove(vertices_in_queue[0])
 
@@ -45,7 +45,6 @@ class DStarLite:
 		while (self.graph.Vertices[self.currentVertex].rhs != self.graph.Vertices[self.currentVertex].g) or (self.topKey() < self.calculateKey(self.currentVertex)):
 			## pocitej dokud neni konzistentni start nebo dokud vrcholy v seznamu OPEN maji nizsi prioritu nez aktualni vrchol
 			stop_criterium+=1
-			print(stop_criterium)
 			if stop_criterium > 200: ## ochrana proti přetečení při rozměrné mapě
 				break
 #				raise ValueError('V programu došlo k chybě. Spusť znova!')
@@ -118,7 +117,7 @@ class DStarLite:
 			if s_next:
 				self.currentVertex = s_next
 			else: ## nasledovnik nenalezen
-				raise ValueError('Nemůžu najít následovníka k přesunu!')
+				raise ValueError('Nemuzu najit nasledovnika k presunu!')
 
 	def moveScan(self): ## prohledej okolí kvůli zmene prekazek a presun se na dalsi vrchol
 		if(self.currentVertex == self.goal):
@@ -222,7 +221,7 @@ class DStarLite:
 
 			s_next = s
 			if not(s_next):
-				raise ValueError('Nemůžu najít následovníka k přesunu!')
+				raise ValueError('Nemuzu najit nasledovnika k presunu!')
 			coords_int = toCoords(s_next)
 			## pokud je vrchol prazdny nebo oznacen jako expandovany
 			if self.graph.cells[coords_int[1],coords_int[0]] == 0 or self.graph.cells[coords_int[1],coords_int[0]] == 5:
